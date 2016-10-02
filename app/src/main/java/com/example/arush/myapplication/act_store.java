@@ -94,8 +94,6 @@ public class act_store extends AppCompatActivity
 
                     FileOutputStream fos = new FileOutputStream(file);
                     fos.write(abc.getBytes());
-
-
                     Toast.makeText(getApplicationContext(), "Data Saved", Toast.LENGTH_LONG).show();
 
                 }
@@ -132,6 +130,11 @@ public class act_store extends AppCompatActivity
                 {
                     sb.append(m+"\n");
                 }
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setCancelable(true);
+                builder.setTitle("Read");
+                builder.setMessage(sb.toString());
+                builder.show();
             }
 
             catch (FileNotFoundException e)

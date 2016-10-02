@@ -2,6 +2,7 @@ package com.example.arush.myapplication;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,7 +22,7 @@ import static com.example.arush.myapplication.act2.edit3;
 public class actmenu extends AppCompatActivity
 {
 
-    private android.widget.Button mInsertButton, mShowButton, mStoreButton;
+    private android.widget.Button mInsertButton, mShowButton, mStoreButton, mdeletebutton;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -30,9 +31,20 @@ public class actmenu extends AppCompatActivity
         mInsertButton = (Button) findViewById(R.id.insertbutton);
         mShowButton = (Button) findViewById(R.id.button4);
         mStoreButton = (Button) findViewById(R.id.button7);
+        mdeletebutton = (Button) findViewById(R.id.button6);
 
 
 
+
+        mdeletebutton.setOnClickListener(new View.OnClickListener()
+        {
+
+            @Override
+            public void onClick(View v)
+            {
+                deletefunction(edit1);
+            }
+        });
         mInsertButton.setOnClickListener(new View.OnClickListener()
         {
 
@@ -66,6 +78,12 @@ public class actmenu extends AppCompatActivity
         {
             Intent intent =new Intent(this, act2.class);
             startActivity(intent);
+        }
+
+        public void deletefunction(EditText id)
+        {
+           // SQLiteDatabase db=this.getWritableDatabase();
+
         }
 
         public void viewinfo()
@@ -108,4 +126,5 @@ public class actmenu extends AppCompatActivity
     }
 
 
-    }
+
+}
